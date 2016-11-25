@@ -8,9 +8,7 @@ ENV JAVA_VERSION_MAJOR=8 \
     GLIBC_PKG_VERSION=2.23-r3 \
     LANG=en_US.UTF8
 
-WORKDIR /tmp
-
-RUN apk add --no-cache --update-cache curl ca-certificates bash && \
+RUN cd /tmp && apk add --no-cache --update-cache curl ca-certificates bash && \
   curl -Lo /etc/apk/keys/sgerrand.rsa.pub "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_PKG_VERSION}/sgerrand.rsa.pub" && \
   curl -Lo glibc-${GLIBC_PKG_VERSION}.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_PKG_VERSION}/glibc-${GLIBC_PKG_VERSION}.apk" && \
   curl -Lo glibc-bin-${GLIBC_PKG_VERSION}.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_PKG_VERSION}/glibc-bin-${GLIBC_PKG_VERSION}.apk" && \
