@@ -1,2 +1,2 @@
 # docker-java
-A simple container containing simple jre
+A lean Alpine container containing Oracle JDK/JRE
